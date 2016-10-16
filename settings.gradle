@@ -1,0 +1,7 @@
+def ignoreFolders = ['lesson0.1']
+
+def rootDir = new File('.')
+rootDir.eachDirMatch ~/lesson\d+\.*\d*/, {
+  if (!ignoreFolders.contains(it.name))
+    it.eachDir { include(it.path.substring(2)) }
+}
