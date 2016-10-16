@@ -5,7 +5,17 @@
  * @author dbutakov, @date 10/15/16 12:10 AM
  */
 public class Library {
+    public final String constant = "";
+
     public boolean someLibraryMethod() {
+        boolean condition = true;
+        if (condition) {
+            System.out.println("true");
+        }
+
+        if (true) {
+            System.out.println("no braces");
+        } 
         return true;
     }
 }
