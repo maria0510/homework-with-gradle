@@ -1,3 +1,5 @@
+rootProject.name = 'JElementary Homework, Finches team'
+
 def ignoreFolders = ['lesson0.1']
 
 def rootDir = new File('.')
