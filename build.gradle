@@ -13,6 +13,26 @@ subprojects {
 
   checkstyle {
     configFile = rootProject.file('config/checkstyle/checkstyle.xml')
-    checkstyleTest.enabled = false
+    sourceSets = [sourceSets.main]
+  }
+
+  sourceSets {
+    acceptanceTests {
+      java {
+        srcDir file('../acceptanceTests/src')
+        compileClasspath += main.output
+        runtimeClasspath += main.output
+      }
+    }
+  }
+
+  configurations {
+    acceptanceTestsCompile.extendsFrom testCompile
+    acceptanceTestsRuntime.extendsFrom testRuntime
+  }
+
+  task acceptanceTests(type: Test) {
+    testClassesDir = project.sourceSets.acceptanceTests.output.classesDir
+    classpath = project.sourceSets.acceptanceTests.runtimeClasspath
   }
 }

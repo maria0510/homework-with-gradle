@@ -5,5 +5,7 @@ def ignoreFolders = ['lesson0.1']
 def rootDir = new File('./homework')
 rootDir.eachDirMatch ~/lesson\d+\.*\d*/, {
   if (!ignoreFolders.contains(it.name))
-    it.eachDir { include(it.path.substring(2)) }
+    it.eachDirMatch ~/^(?!acceptanceTests).*$/, {
+      include(it.path.substring(2))
+    }
 }
