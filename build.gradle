@@ -11,13 +11,6 @@ subprojects {
       testCompile 'org.hamcrest:hamcrest-all:1.3'
   }
 
-  checkstyle {
-    configFile = rootProject.file('config/checkstyle/checkstyle.xml')
-    //sourceSets = [sourceSets.main]
-    ignoreFailures = true
-    //checkstyleAcceptanceTests.ignoreFailures = true
-  }
-
   sourceSets {
     acceptanceTests {
       java {
@@ -36,5 +29,11 @@ subprojects {
   task acceptanceTests(type: Test) {
     testClassesDir = project.sourceSets.acceptanceTests.output.classesDir
     classpath = project.sourceSets.acceptanceTests.runtimeClasspath
+  }
+
+  checkstyle {
+    configFile = rootProject.file('config/checkstyle/checkstyle.xml')
+    checkstyleTest.enabled = false
+    checkstyleAcceptanceTests.enabled = false
   }
 }
