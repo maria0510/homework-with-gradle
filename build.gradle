@@ -12,7 +12,7 @@ subprojects {
   }
 
   sourceSets {
-    acceptanceTests {
+    acceptanceTest {
       java {
         srcDir file('../acceptanceTests/src')
         compileClasspath += main.output
@@ -22,18 +22,18 @@ subprojects {
   }
 
   configurations {
-    acceptanceTestsCompile.extendsFrom testCompile
-    acceptanceTestsRuntime.extendsFrom testRuntime
+    acceptanceTestCompile.extendsFrom testCompile
+    acceptanceTestRuntime.extendsFrom testRuntime
   }
 
-  task acceptanceTests(type: Test) {
-    testClassesDir = project.sourceSets.acceptanceTests.output.classesDir
-    classpath = project.sourceSets.acceptanceTests.runtimeClasspath
+  task acceptanceTest(type: Test) {
+    testClassesDir = project.sourceSets.acceptanceTest.output.classesDir
+    classpath = project.sourceSets.acceptanceTest.runtimeClasspath
   }
 
   checkstyle {
     configFile = rootProject.file('config/checkstyle/checkstyle.xml')
     checkstyleTest.enabled = false
-    checkstyleAcceptanceTests.enabled = false
+    checkstyleAcceptanceTest.enabled = false
   }
 }
