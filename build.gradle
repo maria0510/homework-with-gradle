@@ -37,4 +37,13 @@ subprojects {
     checkstyleAcceptanceTest.enabled = false
     toolVersion = '7.1.2'
   }
+
+  task execute(type:JavaExec) {
+    if (project.hasProperty('mainClass')) {
+      main = mainClass
+    } else {
+      main = 'Main'
+    }
+    classpath = sourceSets.main.runtimeClasspath
+  }
 }
