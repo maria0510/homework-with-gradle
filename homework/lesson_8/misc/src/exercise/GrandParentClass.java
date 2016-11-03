@@ -1,6 +1,6 @@
-package excersice;
+package exersice;
 
-import excersice.logger.InitOrderLogger;
+import exersice.logger.InitOrderLogger;
 
 public class GrandParentClass {
   private InitOrderLogger l1 = InitOrderLogger.logAndGetInstance(0);

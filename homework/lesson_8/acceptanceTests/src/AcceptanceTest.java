@@ -3,8 +3,8 @@ import org.junit.Test;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-import excersice.logger.InitOrderLogger;
-import excersice.TopLevelClass;
+import exersice.logger.InitOrderLogger;
+import exersice.TopLevelClass;
 
 public class AcceptanceTest {
   @Test

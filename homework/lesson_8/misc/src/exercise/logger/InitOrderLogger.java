@@ -1,4 +1,4 @@
-package excersice.logger;
+package exersice.logger;
 
 public class InitOrderLogger {
   private static InitOrderLogger instance;
